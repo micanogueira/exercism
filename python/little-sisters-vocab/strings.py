@@ -12,7 +12,8 @@ def add_prefix_un(word):
 
 
 def make_word_groups(vocab_words):
-    """Transform a list containing a prefix and words into a string with the prefix followed by the words with prefix prepended.
+    """Transform a list containing a prefix and words into a string with the prefix
+    followed by the words with prefix prepended.
 
     :param vocab_words: list - of vocabulary words with prefix in first index.
     :return: str - of prefix followed by vocabulary words with
@@ -31,7 +32,7 @@ def make_word_groups(vocab_words):
     for word in range(1, len(vocab_words)):
         vocab_words[word] = prefix + vocab_words[word]
 
-    return ' :: '.join(vocab_words)
+    return " :: ".join(vocab_words)
 
 
 def remove_suffix_ness(word):
@@ -61,4 +62,7 @@ def adjective_to_verb(sentence, index):
     For example, ("It got dark as the sun set.", 2) becomes "darken".
     """
 
-    pass
+    if index == -1:
+        sentence = sentence[:-1]
+
+    return sentence.split()[index] + "en"
